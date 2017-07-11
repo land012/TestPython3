@@ -32,6 +32,25 @@ str1 = "http://www.eaipatterns.com/img/ChannelIcon.gif"
 # print(len(str2_2))  # 2
 # print(len(str2_3))  # 0
 
+'''
 str1 = "aa"
 str2 = "bb"
-print(str1==str2)
+print(str1==str2)  # False
+'''
+
+'''
+str3 = "a b c"
+arr3 = str3.split()
+print(arr3[0])  # a
+print(len(arr3))  # 3
+'''
+
+str3_2 = "a	b	c"
+arr3_2 = str3_2.split("\t")
+print(len(arr3_2))  # 3
+print(str3_2)  # a	b	c
+print(arr3_2[1])  # b
+
+str4 = "1.2 3"
+arr4 = str4.split()
+print(float(arr4[0]) + 0.5)
