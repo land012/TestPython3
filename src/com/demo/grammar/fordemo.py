@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Filename: fordemo.py
 
+"""
 for i in range(2, 5):
     if i == 3:
         continue
@@ -9,3 +10,7 @@ for i in range(2, 5):
 #        break
 else:
     print("Loop is End!")
+"""
+
+l1 = [ x * 2 for x in range(1, 3) ]
+print(l1)  # [2, 4]

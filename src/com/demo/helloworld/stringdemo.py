@@ -45,12 +45,23 @@ print(arr3[0])  # a
 print(len(arr3))  # 3
 '''
 
+# 按 \t 分割字符串
+"""
 str3_2 = "a	b	c"
 arr3_2 = str3_2.split("\t")
+print(type(arr3_2))  # <class 'list'>
 print(len(arr3_2))  # 3
 print(str3_2)  # a	b	c
 print(arr3_2[1])  # b
+"""
 
+"""
 str4 = "1.2 3"
 arr4 = str4.split()
 print(float(arr4[0]) + 0.5)
+"""
+
+# 首字母大写
+str1 = "asDceFs"
+print(str1.capitalize())  # Asdcefs
+print(str1.r)

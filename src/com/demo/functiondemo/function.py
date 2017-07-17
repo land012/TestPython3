@@ -62,8 +62,18 @@ def fn6(a, b=11, c=21):
 #fn6(2, c=22)
 
 
+# 函数内定义函数
+def fn7(y):
+    def fn7_1(x):
+        return x * 2;
+
+    return fn7_1(y) + 1
+
 # 模块 __name__
 if __name__ == "__main__":
     print("The helloworld.py is being run by itself")
+    print(fn7(2))  # 5
+    print(isinstance(fn7, str))  # False
+    print(hasattr(fn7, "__call__"))  # True
 else:
     print("The helloworld.py is imported from another module")

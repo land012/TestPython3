@@ -63,4 +63,9 @@ list5 = [1, 2]
 list6 = ["a", "b", "c", "de"]
 print("a" in list6)  # True
 print("d" in list6)  # False
+print(list6.reverse())  # None
+
+# list6 已经变为逆序
+for e in list6:
+    print(e)
 

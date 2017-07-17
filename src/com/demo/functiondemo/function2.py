@@ -19,4 +19,14 @@ def fn1():
 def fn2():
     print("I am fn2")
 
-fn1()
+# fn1()
+
+def fn3(*args):
+    print(type(args))  # <class 'tuple'>
+    if len(args) > 0:
+        print(args[0])  # a
+    else:
+        print("=== empty ===")
+
+fn3()
+fn3("a", "b")
