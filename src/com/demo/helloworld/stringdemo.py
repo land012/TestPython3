@@ -61,7 +61,22 @@ arr4 = str4.split()
 print(float(arr4[0]) + 0.5)
 """
 
-# 首字母大写
-str1 = "asDceFs"
-print(str1.capitalize())  # Asdcefs
-print(str1.r)
+def test89():
+    # 首字母大写
+    str1 = "asDceFs"
+    print(str1.capitalize())  # Asdcefs
+
+
+def test90():
+    str2 = None
+    print(str2 == "")  # False
+
+
+def test91():
+    str1 = "abcdefg"
+    print(str1[:3])  # abc
+    print(str1[-3:])  # efg
+
+
+if __name__ == "__main__":
+    test91()

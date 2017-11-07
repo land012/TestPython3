@@ -19,3 +19,5 @@ The PythonPath is ['D:\\_python\\TestProj\\src\\com\\demo\\module',
 '''
 print("The PythonPath is", sys.path)
 
+sys.exit(1)
+exit(1)

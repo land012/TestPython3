@@ -59,13 +59,28 @@ list5 = [1, 2]
 # print(list5[2])
 
 
-# 判断是否包含
-list6 = ["a", "b", "c", "de"]
-print("a" in list6)  # True
-print("d" in list6)  # False
-print(list6.reverse())  # None
+def test123():
+    # 判断是否包含
+    list6 = ["a", "b", "c", "de"]
+    print("a" in list6)  # True
+    print("d" in list6)  # False
+    print(list6.reverse())  # None
 
-# list6 已经变为逆序
-for e in list6:
-    print(e)
+    # list6 已经变为逆序
+    """
+    for e in list6:
+        print(e)
+    """
 
+    """
+    0 - de
+    1 - c
+    2 - b
+    3 - a
+    """
+    for i, v in enumerate(list6):
+        print("%d - %s" % (i, v))
+
+
+if __name__ == "__main__":
+    test123()

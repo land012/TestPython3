@@ -1,3 +1,7 @@
+
+import traceback
+
+
 __author__ = 'xudazhou'
 
 def fn1():
@@ -8,5 +12,7 @@ def fn1():
 if __name__ == "__main__":
     try:
         fn1()
-    except Exception:
+    except Exception as e:
+        traceback.print_exc()
+        print(e)
         print("exception")

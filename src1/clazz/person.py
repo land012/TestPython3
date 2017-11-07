@@ -10,6 +10,10 @@ class Person:
         self.name = name
 
     def sayhi(self):
+        """
+        因为没有引用 self的变量，所以代码检查这个方法可以是 static
+        :return:
+        """
         print("Hi Leah Dizon")
 
     def sayhello(self):

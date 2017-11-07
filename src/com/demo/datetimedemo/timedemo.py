@@ -1,3 +1,4 @@
+# coding:utf-8
 import time
 
 __author__ = 'xudazhou'
@@ -37,6 +38,7 @@ print(time.localtime())
 print(time.clock())
 '''
 
+"""
 # 打印当前时间戳
 timestamp = time.time()
 # 1472454794.01881
@@ -45,8 +47,11 @@ print(timestamp)
 struct_time = time.localtime(timestamp)
 # 2016-08-29 15:13:14
 print(time.strftime("%Y-%m-%d %H:%M:%S", struct_time))
+"""
 
-
-
+# time 相减
+start = time.time()
+time.sleep(3)
+print("sleep %d s" % (time.time() - start))  # sleep 3 s
 
 
