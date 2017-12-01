@@ -27,7 +27,9 @@ def strtofloat(str1):
     num2 = reduce(decimalpart, list2)
     return num1 + num2
 
-str1 = "123.456"
-f1 = strtofloat(str1)
-print(type(f1))  # <class 'float'>
-print(f1)  # 123.456
+
+if __name__ == "__main__":
+    str1 = "123.456"
+    f1 = strtofloat(str1)
+    print(type(f1))  # <class 'float'>
+    print(f1)  # 123.456

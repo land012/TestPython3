@@ -1,6 +1,10 @@
 __author__ = 'xudazhou'
 
-# Tuple 元组
+"""
+Tuple 元组
+下标从 0 开始
+"""
+
 
 # ######################### 元组 ##########################
 zoo = ("wolf", "elephant", "penguin")
@@ -15,6 +19,7 @@ print("new_zoo:", new_zoo)  # new_zoo: ('dolphin', 'lion', ('wolf', 'elephant', 
 #orchard = ("apple", )
 #print("orchard:", orchard)
 #print("orchard count:", len(orchard))
+
 # 占位符打印
 #name = "tom"
 #age = 15

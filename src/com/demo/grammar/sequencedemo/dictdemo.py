@@ -1,10 +1,28 @@
 #!/usr/bin/env python
+# coding: utf-8
+
+import unittest
+
 __author__ = 'xudazhou'
+
+class DictDemo(unittest.TestCase):
+    @staticmethod
+    def test1():
+        l_dict1 = {"k1": "v1", "k2": "v2"}
+        print("dict1['k1']:%s" % l_dict1['k1'])  # 索引获取记录
+
+
+    @staticmethod
+    def test883():
+        l_dict1 = {"k1": 1, "k2": 2}
+        v1 = { k: v*2 for k, v in l_dict1.items() }
+        print(v1)  # {'k2': 4, 'k1': 2}
+
+
 
 # ######################### 字典 ##########################
 """
-dict1 = {"k1": "v1", "k2": "v2"}
-print("dict1['k1']:%s" % dict1['k1'])  # 索引获取记录
+
 
 dict1['k3'] = 'v3'  # 添加
 del dict1['k2']  # 删除

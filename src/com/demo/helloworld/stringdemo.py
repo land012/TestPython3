@@ -1,4 +1,24 @@
+# coding: utf-8
+
+import unittest
+
 __author__ = 'xudazhou'
+
+
+class StringDemo(unittest.TestCase):
+    @staticmethod
+    def test_format():
+        d2 = 123.332345
+        d1 = "%.5f" % d2
+        print(type(d1))  # <class 'str'>
+        print(d1)  # 123.33235
+
+        d3 = "%*.*f" % (0, -2, d2)
+        print(d3)
+
+    @staticmethod
+    def test_format2():
+        print("%d %s" % 2)
 
 # 格式化
 # g
@@ -11,14 +31,19 @@ print("%g" % 0.00000454)  # 4.54e-06
 # dict
 #print("%(a)s %(b)s" % {"a": "小王", "b": "小李"})  # 小王 小李
 
-
-# split
-# 默认以空白分隔
-'''
-str1 = "a  b c   d  e"
-tuple1 = str1.split()
-print(tuple1)  # ['a', 'b', 'c', 'd', 'e']
-'''
+def test3():
+    """
+    split
+    默认以空白分隔
+    返回 list
+    :return:
+    """
+    l_str1 = "a  b c   d  e"
+    tuple1 = l_str1.split()
+    print(type(tuple1))  # <class 'list'>
+    print(tuple1)  # ['a', 'b', 'c', 'd', 'e']
+    del tuple1[2]
+    print(tuple1)  # ['a', 'b', 'd', 'e']
 
 # 字符串替换
 str1 = "http://www.eaipatterns.com/img/ChannelIcon.gif"
@@ -79,4 +104,4 @@ def test91():
 
 
 if __name__ == "__main__":
-    test91()
+    test3()
