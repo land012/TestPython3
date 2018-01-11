@@ -1,6 +1,49 @@
+# coding: utf-8
 
 import time
 import datetime
+import unittest
+
+
+class DatetimeDemo(unittest.TestCase):
+
+    @staticmethod
+    def test1():
+        start = datetime.datetime.now()
+        print(start)
+        time.sleep(3)
+        delta1 = datetime.datetime.now() - start
+        print(delta1)
+        print(delta1.days)  # 0
+        print(delta1.seconds)  # 3
+        print(delta1.microseconds)  # 172
+
+    @staticmethod
+    def test_delta():
+        start = datetime.datetime.strptime("2017-12-01 14:12:15", "%Y-%m-%d %H:%M:%S")
+        end = datetime.datetime.strptime("2017-12-01 14:13:20", "%Y-%m-%d %H:%M:%S")
+        delta1 = end - start
+        print(delta1)  # 0:01:05
+        print(delta1.days)  # 0
+        print(delta1.seconds)  # 65
+        print(delta1.microseconds)  # 0
+        print(delta1.total_seconds())  # 65
+
+    @staticmethod
+    def test_delta2():
+        start = datetime.datetime.strptime("2017-12-01 14:12:15", "%Y-%m-%d %H:%M:%S")
+        end = datetime.datetime.strptime("2017-12-02 14:12:20", "%Y-%m-%d %H:%M:%S")
+        delta1 = end - start
+        print(delta1)  # 1 day, 0:00:05
+        print(delta1.days)  # 1
+        print(delta1.seconds)  # 5
+        print(delta1.microseconds)  # 0
+        print(delta1.total_seconds())  # 86405.0
+
+    @staticmethod
+    def test_dateparse():
+        date1 = datetime.datetime.strptime("2017-12-12 00:00:00"[:10], "%Y-%m-%d")
+        print(date1)
 
 
 '''
@@ -39,13 +82,7 @@ print(datetime.datetime.utcfromtimestamp(timestamp1))
 print(datetime.datetime.fromtimestamp(timestamp1))
 '''
 
-# 日期解析
-'''
-dt1_str = "2017-01-08 15:03:45"  # 周日
-dt1 = datetime.datetime.strptime(dt1_str, "%Y-%m-%d %H:%M:%S")
-print(dt1)
-print(dt1.weekday())  # 6
-'''
+
 
 # 1492790400
 # 1492790400
@@ -53,15 +90,3 @@ print(dt1.weekday())  # 6
 """
 print(datetime.datetime.fromtimestamp(1492790400))  # 2017-04-22 00:00:00
 """
-
-def test2():
-    base_date = datetime.datetime.strptime("2017-09-14 00:00:00", "%Y-%m-%d %H:%M:%S")
-    for i in range(5):
-        l_str = "%s %s" % ("now", base_date.strftime("%Y%m%d"))
-        print(l_str)
-        base_date += datetime.timedelta(days = -1)
-
-
-
-if __name__ == "__main__":
-    test2()
