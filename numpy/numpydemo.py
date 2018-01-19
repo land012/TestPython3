@@ -45,6 +45,68 @@ class NumpyDemo(unittest.TestCase):
 
     @staticmethod
     def test4():
+        """对数组 slice"""
         arr1 = np.array([[1, 2, 3], [4, 5, 6]])
         arr2 = arr1[:, 2]
-        print(arr2)
+        print(arr2)  # [3 6]
+
+    @staticmethod
+    def test_max():
+        arr1 = np.array([1, 2, 3, 4])
+        print(arr1.max())  # 4
+        print(np.max(arr1))  # 4
+
+    @staticmethod
+    def test_unique():
+        """
+        排序并统计出现次数
+        """
+        arr1 = np.array(['e', 'b', 'e', 'a', 'd', 'd'])
+        arr11, arr12 = np.unique(arr1, return_counts=True)
+        print(arr11)  # ['a' 'b' 'd' 'e']
+        print(arr12)  # [1 1 2 2]
+
+    @staticmethod
+    def test_unique2():
+        """
+        获取出现次数最多的元素
+        """
+        arr1 = np.array(['e', 'b', 'e', 'a', 'd', 'd'])
+        arr11, arr12 = np.unique(arr1, return_counts=True)
+        print(arr11)  # ['a' 'b' 'd' 'e']
+        print(arr12)  # [1 1 2 2]
+        index1 = np.argmax(arr12)
+        print(index1)  # 2
+        print(arr11[index1])  # d
+
+    @staticmethod
+    def test_bincount():
+        """统计出现次数，不存在的数字补0"""
+        arr1 = np.array([4, 4, 4, 9, 20])
+        b1 = np.bincount(arr1)
+        print(b1)  # [0 0 0 0 3 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1]
+
+    @staticmethod
+    def test_argmax():
+        """打印最大数值的下标"""
+        arr1 = np.array([4, 9, 4, 9, 3])
+        am1 = np.argmax(arr1)
+        print(type(am1))  # <class 'numpy.int64'>
+        print(am1)  # 1
+        # arr2 = np.array([])
+        # print(np.argmax(arr1, 0, arr2))
+        # print(arr2)
+
+    @staticmethod
+    def test_argmax2():
+        """打印最大数值的下标"""
+        arr1 = np.array([[4, 9, 4], [9, 3, 10]])
+        print(arr1)
+
+        am1 = np.argmax(arr1)
+        print(type(am1))  # <class 'numpy.int64'>
+        print(am1)  # 5
+
+        am1 = np.argmax(arr1, 1)
+        print(type(am1))  # <class 'numpy.ndarray'>
+        print(am1)  # [1 2]

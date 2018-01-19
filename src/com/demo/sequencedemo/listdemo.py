@@ -109,6 +109,19 @@ class ListDemo(unittest.TestCase):
         print(list1)  # [{'k2': 'v1', 'k1': 2}, {'k2': 'v2', 'k1': 3}, {'k2': 'v3', 'k1': 4}]
         print(max(list1, key=lambda d: d["k1"]))  # {'k1': 4, 'k2': 'v3'}
 
+    @staticmethod
+    def test_mul():
+        l1 = [1, 2, 3]
+        l2 = [l1] * 3
+        print(l2)  # [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+
+        # 把 l2 当成一个参数
+        print(list(zip(l2)))  # [([1, 2, 3],), ([1, 2, 3],), ([1, 2, 3],)]
+        print(*zip(l2))  # ([1, 2, 3],) ([1, 2, 3],) ([1, 2, 3],)
+
+        # 把 l2 中的 list 当做多个参数
+        print(*zip(*l2))  # (1, 1, 1) (2, 2, 2) (3, 3, 3)
+
 
 class User(object):
 
