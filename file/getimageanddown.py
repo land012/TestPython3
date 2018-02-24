@@ -24,7 +24,7 @@ try:
                 # 替换域名
                 imgurl = imgurl.replace("www.eaipatterns.com", "www.enterpriseintegrationpatterns.com")
                 com.demo.url.imagedown.imagedown(imgurl, "E:\\TDDOWNLOAD\\images\\")
-except:
+except Exception:
     traceback.print_exc()
     print("i=%d" % i)
     print("exception line:%s" % line)
