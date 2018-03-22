@@ -121,7 +121,9 @@ class FileDemo(unittest.TestCase):
         如果只有英文，用 ascii,utf-8, gbk 写或读都可以
         """
         file5 = open(file="E:\TDDOWNLOAD\helloworld.txt", mode="w", encoding="utf-8")
-        file5.write("你好 Python")
+        file5.write("你好 Python\n")
+        print(file5.newlines) # None
+        file5.write("haha")
         file5.close()
 
     @staticmethod

@@ -24,6 +24,8 @@ class DictDemo(unittest.TestCase):
     @staticmethod
     def test_exist():
         """判断 key 是否在字典中"""
+        # 二维字典
+        dict1 = { "k1" : { "k11" : "v11", "k12" : "v12" }, "k2" : { "k21" : "v21", "k22" : "v22" } }
         dict2 = {"k2": [4, 5, 6], "k3": [2, 3, 5], "k1": [1, 2, 3]}
 
         if 'k3' in dict1:  # 判断
@@ -68,23 +70,15 @@ class DictDemo(unittest.TestCase):
         for i in list1:
             print(i)
 
+    @staticmethod
+    def test_three():
+        dict1 = { "k1": "v1" }
+        print(dict1["k1"] if "k1" in dict1 else "null")
+
 
 
 # ######################### 字典 ##########################
-"""
 
-
-
-"""
-
-"""
-
-
-
-"""
-
-# 二维字典
-dict1 = { "k1" : { "k11" : "v11", "k12" : "v12" }, "k2" : { "k21" : "v21", "k22" : "v22" } }
 
 def test2342():
     l_dict1 = {"k1": "v1", "k2": "v2"}
