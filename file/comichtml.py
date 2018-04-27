@@ -9,8 +9,9 @@ class ComicHtml(unittest.TestCase):
 
     @staticmethod
     def test1():
-        for i in range(1, 1172):
-            print("<img src =\"images/%04d.jpg\" /><hr/>" % i)
+        for i in range(1, 206):
+            # print("<img src =\"images/%03d.png\" /><hr/>" % i)
+            print("<img src =\"images/Momdoes_%03d.jpg\" /><hr/>" % i)
 
     @staticmethod
     def test2():
@@ -23,4 +24,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    ComicHtml.test1()
