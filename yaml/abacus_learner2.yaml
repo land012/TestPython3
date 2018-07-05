@@ -1,0 +1,151 @@
+abacus : conf/abacus.yaml
+
+minibatch_size : 256
+create_clk_prob : 1
+create_nonclk_prob : 1
+clk_coeff : 1
+nonclk_coeff : 1
+delete_threshold : 0.5
+delete_after_unseen_days : 90
+load_balance : true
+drop_feature : 0
+
+bias_slot : -1
+position_slot : -1
+position_feas : -1
+
+ins_weights_index : 0
+
+enable_softmax_loss : true
+bucket_position : 1
+softmax_dim : 99
+
+#slots : 1001 1002 1003 1004 1005 1006 1007 1008 1009 1010 1011 1012 1013 1014 1015 1016 1017 1018 1019 1020 1021 1022 1023 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023
+slots : 1 2
+if_avg : 1 1
+
+data_shuffler : 
+    merge_by_lineid : false
+    check_show_clk_consistency : false
+    erase_duplicate_feas : false
+    delete_instances_without_slot : -1
+
+#dump data related
+is_output_q_data : false
+is_output_cvm_data : false
+is_output_session_data : false
+is_output_vec_data : false
+is_output_ins_data : false
+
+# print ad and user vector
+enable_vec_printer : false
+#enable_vec_printer : true
+#vec_path : "afs:/user/feed_video/user/wangshijun/st_model/supervised_usercf/default_vec"
+
+monitors:
+        - { method : AucCalulator, name : usr_item_join, scope: pass, phase : JOINING,  target : usr_item_join, label : label_target }
+        - { method : AucCalulator, name : usr_item_update, scope: pass, phase : UPDATING,  target : usr_item_update, label : label_target }
+          #- { method : AucCalulator, name : usr_item_join_day, scope: day, phase : JOINING,  target : usr_item_join, label : label_target }
+          #- { method : AucCalulator, name : usr_item_update_day, scope: day, phase : UPDATING,  target : usr_item_update, label : label_target }
+
+dump_fields : [usr_output, item_output]
+
+#train mode related
+train_mode : online
+
+phase : join,update
+
+online_runner :
+
+    working_root : "afs:/app/ps/rank/ps-rank/rec/liuzhichao01/supervised_usercf/abacus_working_root/supervised_usercf_30days"
+    hdfs_address : "afs://aries.afs.baidu.com:9902"
+    data_path : "afs:/app/ps/rank/ps-rank/rec/liuzhichao01/supervised_usercf/train_format"
+    data_converter : "script/clean.py"
+
+    is_in_order : false
+    is_data_hourly_placed : false
+    #split_interval : 1440
+    split_interval : 240  # 4 hours, 6 piece per day
+    splits_per_delta : 1
+    deltas_per_xbox : 1
+
+    done_file_path : "${working_root}/done_file"
+    batch_model_path : "${working_root}/model"
+    load_model_converter : ""
+    
+    is_output_dnn : true
+    is_output_join_data : false
+    is_output_xbox_model : true
+    is_output_auc_log : false
+
+    is_dump_xbox_at_init : false
+    xbox_delta_converter : (script/xbox_compressor_mf.py | bin/xbox_pb_converter)
+    xbox_base_converter : (script/xbox_compressor_mf.py | bin/xbox_pb_converter)
+    xbox_format : pb
+    output_xbox_ctr_slot_size : 0
+
+    delta_update_threshold : 0.15
+    base_update_threshold : 0.2
+    delta_keep_days : 31
+    pre_download_deltas : 5
+
+    startup_day : ""
+
+    merge_model :
+        work_root : "mergemodel"
+        output_path : "${working_root}/dnn"
+        run_cmd : "sh run.sh"
+
+offline_runner :
+    working_root : "afs:/app/ps/rank/ps-rank/rec/liuzhichao01/supervised_usercf/abacus_working_root/supervised_usercf_30days"
+    hdfs_address : "afs://aries.afs.baidu.com:9902"
+    data_path : "afs:/app/ps/rank/ps-rank/rec/liuzhichao01/supervised_usercf/train_format/$DAY/0000"
+
+    is_split_ins_by_logkey : false
+    #train data realted
+    #data_converter : "script/format_add_logkey.awk"
+    data_converter : ""
+    data_done_file : ""
+    data_days : "20180209"
+
+    # train realted
+    join_data_days : "20180209"
+    is_update : true
+    halfhours_per_pass : 48
+
+    is_wait_data_ready : false
+    is_output_auc_log : false
+
+    #model related
+    model_days : "20180209"
+    model_path : "${working_root}/model"
+    model_done_file : "${working_root}/done_file"
+    load_model_converter : ""
+
+cvm_plugin :
+    decay_rate : 0.98
+
+lr_plugin :
+
+    learning_rate : 0.05
+    initial_g2sum : 3
+    initial_range : 1e-3
+    version_aware : true
+    weight_bounds : [-5, 5]
+
+mf_plugin :
+
+    slots : all
+
+    dim : 128
+    create_threshold : 100
+    joint_with_lr : true
+    only_join_sum : true
+
+    learning_rate : 0.05
+    initial_g2sum : 3
+    initial_range : 1e-3
+    version_aware : true
+    weight_bounds : [-5, 5]
+
+dnn_plugin : ./conf/dnn-plugin.yaml

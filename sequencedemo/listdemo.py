@@ -16,6 +16,14 @@ class ListDemo(unittest.TestCase):
         l_shoplist = ["apple", "mango", "carrot", "radish"]
         print("shoplist:", l_shoplist)
         l_shoplist.append("banana")  # 追加记录
+        l_shoplist.append("apple")  # 追加记录
+        print("shoplist:", l_shoplist)
+        print(l_shoplist.count("apple"))  # 2
+
+        list2 = []
+        list2 = l_shoplist[:1]
+        list2.extend(l_shoplist[2:])
+        print("list2: %s" % list2)
 
     @staticmethod
     def test_del():
@@ -122,6 +130,64 @@ class ListDemo(unittest.TestCase):
         # 把 l2 中的 list 当做多个参数
         print(*zip(*l2))  # (1, 1, 1) (2, 2, 2) (3, 3, 3)
 
+    @staticmethod
+    def test_traverse():
+        # ######################### 列表 ##########################
+        shoplist = [ "apple", "mango", "carrot", "radish" ]
+        print("items count:", len(shoplist)) # 4
+        print(shoplist)  # ['apple', 'mango', 'carrot', 'radish']
+
+        print("===============================")
+
+        # 遍历
+        for i in shoplist:
+           print(i, end=" ")  # apple mango carrot radish 
+
+        print()
+        print("===============================")
+
+    @staticmethod
+    def test_extend():
+        list1 = [1, 2]
+        list2 = [3, 4]
+        list1.extend(list2)
+        print(list1)  # [1, 2, 3, 4]
+
+    @staticmethod
+    def test_dictinlist():
+        # 列表中有字典
+        mylist3 = []
+        for i in range(1, 4):
+            mylist3.append({ "i" : i })
+
+        print(mylist3) # [{'i': 1}, {'i': 2}, {'i': 3}]
+
+    @staticmethod
+    def test_emptylist():
+        # 空列表 不会报错
+        list4 = []
+        for i in list4:
+            print(i)
+
+    @staticmethod
+    def test_index():
+        # 下标越界的报错
+        list5 = [1, 2]
+        # 报错 下标越界
+        # IndexError: list assignment index out of range
+        list5[2] = 3
+
+        # IndexError: list index out of range
+        print(list5[2])
+
+    @staticmethod
+    def test_31():
+        vec1 = [0]*5  # [0, 0, 0, 0, 0]
+        print(type(vec1))
+        print(vec1)
+
+        vec2 = [1, 2] * 3
+        print(vec2)  # [1, 2, 1, 2, 1, 2]
 
 class User(object):
 
@@ -135,46 +201,12 @@ class User(object):
     def __repr__(self):
         return self.__str__()
 
-# ######################### 列表 ##########################
-#shoplist = [ "apple", "mango", "carrot", "radish" ]
-#print("items count:", len(shoplist)) # 列表大小
-#print(shoplist)
 
-#print("===============================")
+if __name__ == "__main__":
+    suite = unittest.TestSuite()
+    # suite.addTest(ListDemo("test_traverse"))
 
-# 遍历
-#for i in shoplist:
-#    print(i, end=" ")
+    suite.addTest(ListDemo("test_append"))
+    suite.addTest(ListDemo("test_31"))
 
-#print()
-#print("===============================")
-
-
-
-# 列表中有字典
-'''
-mylist3 = []
-for i in range(1, 4):
-    mylist3.append({ "i" : i })
-
-print(mylist3) # [{'i': 1}, {'i': 2}, {'i': 3}]
-'''
-
-# 空列表 不会报错
-'''
-list4 = []
-for i in list4:
-    print(i)
-'''
-
-# 下标越界的报错
-# list5 = [1, 2]
-# 报错 下标越界
-# IndexError: list assignment index out of range
-#list5[2] = 3
-
-# IndexError: list index out of range
-# print(list5[2])
-
-
-
+    unittest.TextTestRunner(verbosity=0).run(suite)

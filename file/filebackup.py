@@ -22,3 +22,11 @@ class FileBackup(unittest.TestCase):
     def test2():
         # 执行操作系统命令
         print(os.system("echo %cd%"))  # D:\_python\TestProj
+
+
+if __name__ == "__main__":
+    suite = unittest.TestSuite()
+    suite.addTest(FileBackup("test1"))
+    suite.addTest(FileBackup("test2"))
+
+    unittest.TextTestRunner(verbosity=2).run(suite)

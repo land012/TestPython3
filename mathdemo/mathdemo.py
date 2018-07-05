@@ -21,3 +21,19 @@ class MathDemo(unittest.TestCase):
         print(math.ceil(1.5))  # 2
         print(math.ceil(2))  # 2
 
+    @staticmethod
+    def test_log():
+        print(math.log(9, 3))
+
+    @staticmethod
+    def test_pow():
+        print(2 ** -3)
+        print(1 / 2 ** 3)
+
+
+if __name__ == "__main__":
+    suite = unittest.TestSuite()
+    suite.addTest(MathDemo('test_log'))
+    suite.addTest(MathDemo('test_pow'))
+
+    unittest.TextTestRunner(verbosity=2).run(suite)

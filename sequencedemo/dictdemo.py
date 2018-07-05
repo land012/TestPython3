@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import unittest
+import operator
 
 __author__ = 'xudazhou'
 
@@ -66,24 +67,34 @@ class DictDemo(unittest.TestCase):
     def test_sort2():
         """字典按 key 排序"""
         dict1 = {"k2": "v2", "k3": "v3", "k1": "v1"}
-        list1 = sorted(dict1.items(), key=lambda item:item[0])
+        list1 = sorted(dict1.items(), key=lambda item:item[0], reverse=True)
         for i in list1:
             print(i)
+
+    @staticmethod
+    def test_sortbyvalue():
+        """字典按 value 排序"""
+        dict1 = {"k7": "v2", "k5": "v3", "k6": "v1"}
+        list1 = sorted(dict1.items(), key=operator.itemgetter(1))
+        print(type(list1))  # <class 'list'>
+        print(type(list1).__name__)  # list
+        print(list1)  # [('k6', 'v1'), ('k7', 'v2'), ('k5', 'v3')]
 
     @staticmethod
     def test_three():
         dict1 = { "k1": "v1" }
         print(dict1["k1"] if "k1" in dict1 else "null")
 
-
-
-# ######################### 字典 ##########################
-
-
-def test2342():
-    l_dict1 = {"k1": "v1", "k2": "v2"}
-    print(type(l_dict1.items()))  # <class 'dict_items'>
+    @staticmethod
+    def test_items():
+        l_dict1 = {"k1": "v1", "k2": "v2"}
+        print(type(l_dict1.items()))  # <class 'dict_items'>
+        print("中文")
 
 
 if __name__ == "__main__":
-    test2342()
+    suite = unittest.TestSuite()
+    suite.addTest(DictDemo("test_items"))
+    suite.addTest(DictDemo("test_sortbyvalue"))
+
+    unittest.TextTestRunner(verbosity=2).run(suite)

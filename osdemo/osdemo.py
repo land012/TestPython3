@@ -8,6 +8,8 @@ def main():
 
     print(os.name)  # nt
 
+    print(os.sep)
+
     print(os.path.exists("E:\\TDDOWNLOAD\\工作簿1.xlsx")) # False
 
     # 环境变量

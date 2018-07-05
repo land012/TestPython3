@@ -50,6 +50,9 @@ class NumpyDemo(unittest.TestCase):
         arr2 = arr1[:, 2]
         print(arr2)  # [3 6]
 
+        list2 = [ line[0] for line in arr1 ]
+        print(list2)  # [1, 4]
+
     @staticmethod
     def test_max():
         arr1 = np.array([1, 2, 3, 4])
@@ -110,3 +113,10 @@ class NumpyDemo(unittest.TestCase):
         am1 = np.argmax(arr1, 1)
         print(type(am1))  # <class 'numpy.ndarray'>
         print(am1)  # [1 2]
+
+
+if __name__ == "__main__":
+    suite = unittest.TestSuite()
+    suite.addTest(NumpyDemo('test4'))
+
+    unittest.TextTestRunner(verbosity=0).run(suite)
