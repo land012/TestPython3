@@ -10,24 +10,28 @@ if __name__ == "__main__":
     s1 = time.time()
     print(s1)
 
+    ## 格式化 %d
     for i in range(10000000):
         sx = "aaa%d" % i
 
     s2 = time.time()
     print("格式化:" + str(s2 - s1))  # 最快
 
+    ## 格式化 {}
     for i in range(10000000):
         sx = "aaa{0}".format(i)
 
     s3 = time.time()
     print("格式化2:" + str(s3 - s2))  # 最慢
 
+    ## 字符串连接 +
     for i in range(10000000):
         sx = "aaa" + str(i)
 
     s4 = time.time()
     print("类型转换:" + str(s4 - s3))  # 第二快
 
+    # 格式化 %s %d
     for i in range(10000000):
         sx = "%s %d" % ("aaa", i)
 

@@ -111,7 +111,7 @@ class ListDemo(unittest.TestCase):
         dict1 = {"k1": 3, "k2": "v2"}
         dict2 = {"k1": 2, "k2": "v1"}
         dict3 = {"k1": 4, "k2": "v3"}
-        list1 = [dict1, dict2, dict3]
+        list1 = [dict1, dict2, dict3],
         print(list1)  # [{'k2': 'v2', 'k1': 3}, {'k2': 'v1', 'k1': 2}, {'k2': 'v3', 'k1': 4}]
         list1.sort(key=lambda d: d["k1"])
         print(list1)  # [{'k2': 'v1', 'k1': 2}, {'k2': 'v2', 'k1': 3}, {'k2': 'v3', 'k1': 4}]

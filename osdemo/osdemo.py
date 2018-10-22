@@ -36,7 +36,7 @@ def main():
     D:\_python\TestPython3
     D:\_python\TestPython3\src\stringdemo
     """
-    print(os.getenv("PYTHONPATH"))
+    print(os.environ.get("PYTHONPATH"))
 
 if __name__ == "__main__":
     main()

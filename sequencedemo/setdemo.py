@@ -21,6 +21,23 @@ class SetDemo(unittest.TestCase):
 		print(set3)  # {1, 2, 3, 4}
 		print(set4)  # {1, 2, 3, 4}
 
+	@staticmethod
+	def test3():
+		"""
+		set 是无序的
+		:return:
+		"""
+		set1 = set()
+		set1.add(1)
+		set1.add(2)
+		set1.add(1)
+		set1.add(5)
+		set1.add(3)
+		set1.add(4)
+		set1.add(3)
+		set1.add(5)
+		print(set1)  # {1, 2, 3, 4, 5}
+
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()

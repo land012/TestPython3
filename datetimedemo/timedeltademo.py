@@ -33,11 +33,11 @@ class TimeDeltaDemo(unittest.TestCase):
 
     @staticmethod
     def test3_1():
-        date1 = datetime.datetime.strptime("2016-06-13", "%Y-%m-%d")
-        date2 = datetime.datetime.strptime("2016-12-26", "%Y-%m-%d")
-        date3 = datetime.datetime.strptime("2017-01-02", "%Y-%m-%d")
+        date1 = datetime.datetime.strptime("2016-06-13", "%Y-%m-%d")  # mon
+        date2 = datetime.datetime.strptime("2016-06-20", "%Y-%m-%d")
+        date3 = datetime.datetime.strptime("2017-10-30", "%Y-%m-%d")
         date4 = datetime.datetime.strptime("2017-12-04", "%Y-%m-%d")
-        date5 = datetime.datetime.strptime("2018-04-30", "%Y-%m-%d")
+        date5 = datetime.datetime.strptime("2018-07-30", "%Y-%m-%d")
         print(hectortimeutils.cal_weeks(date1, date2))  # (25, 0)
         print(hectortimeutils.cal_weeks(date1, date3))  # (29, 0)
         print(hectortimeutils.cal_weeks(date1, date4))  # (73, 0)
@@ -45,8 +45,8 @@ class TimeDeltaDemo(unittest.TestCase):
 
     @staticmethod
     def test4():
-        date1 = datetime.datetime.strptime("2018-06-18", "%Y-%m-%d")
-        date2 = datetime.datetime.strptime("2018-06-24", "%Y-%m-%d")
+        date1 = datetime.datetime.strptime("2018-06-01", "%Y-%m-%d")
+        date2 = datetime.datetime.strptime("2018-10-20", "%Y-%m-%d")
         timedelta1 = date2 - date1
         print(type(timedelta1))  # <class 'datetime.timedelta'>
         print(timedelta1)  # 6 days, 0:00:00
@@ -54,6 +54,14 @@ class TimeDeltaDemo(unittest.TestCase):
         # print(timedelta1.weeks)
         print(timedelta1.days)  # 6
         print(timedelta1.seconds)  # 0
+
+    @staticmethod
+    def test5():
+        date1 = datetime.datetime.strptime("2018-07-22", "%Y-%m-%d")
+        date2 = datetime.datetime.strptime("2018-08-04", "%Y-%m-%d")
+        while date1 <= date2:
+            print(date1.strftime("%Y%m%d"))
+            date1 = date1 + datetime.timedelta(days=1)
 
 
 

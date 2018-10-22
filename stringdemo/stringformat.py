@@ -17,6 +17,7 @@ class StringFormat(unittest.TestCase):
 
         # dict
         # print("%(a)s %(b)s" % {"a": "小王", "b": "小李"})  # 小王 小李
+        print("- %s -" % 2)
 
     @staticmethod
     def test_format():
@@ -30,4 +31,16 @@ class StringFormat(unittest.TestCase):
 
     @staticmethod
     def test_format2():
+        """
+        TypeError: not enough arguments for format string
+        :return:
+        """
         print("%d %s" % 2)
+
+    @staticmethod
+    def test_format3():
+        """
+        ValueError: unsupported format character ''' (0x27) at index 1
+        :return:
+        """
+        print("%' %s" % ("a", ))

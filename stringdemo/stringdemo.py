@@ -8,21 +8,6 @@ __author__ = 'xudazhou'
 class StringDemo(unittest.TestCase):
 
     @staticmethod
-    def test3():
-        """
-        split
-        默认以空白分隔
-        返回 list
-        :return:
-        """
-        l_str1 = "a  b c   d  e"
-        tuple1 = l_str1.split()
-        print(type(tuple1))  # <class 'list'>
-        print(tuple1)  # ['a', 'b', 'c', 'd', 'e']
-        del tuple1[2]
-        print(tuple1)  # ['a', 'b', 'd', 'e']
-
-    @staticmethod
     def test_replace():
         # 字符串替换
         str1 = "http://www.eaipatterns.com/img/ChannelIcon.gif"
@@ -44,28 +29,6 @@ class StringDemo(unittest.TestCase):
         str2 = "bb"
         print(str1==str2)  # False
 
-    @staticmethod
-    def test_split():
-        str3 = "a b c"
-        arr3 = str3.split()
-        print(arr3[0])  # a
-        print(len(arr3))  # 3
-
-    @staticmethod
-    def test_split2():
-        # 按 \t 分割字符串
-        str3_2 = "a	b	c"
-        arr3_2 = str3_2.split("\t")
-        print(type(arr3_2))  # <class 'list'>
-        print(len(arr3_2))  # 3
-        print(str3_2)  # a	b	c
-        print(arr3_2[1])  # b
-
-    @staticmethod
-    def test_split3():
-        str4 = "1.2 3"
-        arr4 = str4.split()
-        print(float(arr4[0]) + 0.5)
 
     @staticmethod
     def test89():
@@ -83,8 +46,6 @@ class StringDemo(unittest.TestCase):
         str1 = "abcdefg"
         print(str1[:3])  # abc
         print(str1[-3:])  # efg
-
-
 
     @staticmethod
     def test_isalnum():
@@ -150,6 +111,22 @@ class StringDemo(unittest.TestCase):
         print("abc"[3:])
 
     @staticmethod
+    def test_substr2():
+        print("abcd"[:3])
+
+    @staticmethod
     def test_strip():
         """空格和制表符都会被截断"""
         print("|%s|" % " abc	".strip())
+
+    @staticmethod
+    def test_join():
+        list1 = ["a", "b", "c"]
+        print(",".join(list1))  # a,b,c
+
+
+if __name__ == '__main__':
+    suite = unittest.TestSuite()
+    suite.addTest(StringDemo("test_join"))
+
+    unittest.TextTestRunner(verbosity=2).run(suite)

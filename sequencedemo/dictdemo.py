@@ -18,7 +18,9 @@ class DictDemo(unittest.TestCase):
         dict1 = {"k1": "v1", "k2": "v2"}
         dict1['k3'] = 'v3'  # 添加
         del dict1['k2']  # 删除
+
         print("dict1 count:%d" % len(dict1))  # 大小
+
         for k, v in dict1.items():  # 遍历
             print("dict1[%s]=%s" % (k, v), end=",")
 
@@ -41,6 +43,14 @@ class DictDemo(unittest.TestCase):
         dict2 = {"k2": [4, 5, 6], "k3": [2, 3, 5], "k1": [1, 2, 3]}
         # 报错 KeyError: 'k4'
         print(dict2["k4"])
+
+    @staticmethod
+    def test_in3():
+        dict1 = { "1": 1, 2: 2 }
+        print(1 in dict1)  # False
+        print("1" in dict1)  # True
+        print(2 in dict1)  # True
+        print("2" in dict1)  # False
 
     @staticmethod
     def test883():
