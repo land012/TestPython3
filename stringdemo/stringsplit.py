@@ -29,9 +29,13 @@ class StringSplit(unittest.TestCase):
 
     @staticmethod
     def test_split2():
+        """
+        分割 maxsplit 次，分成 maxsplit+1 次
+        :return:
+        """
         # 按 \t 分割字符串
         str3_2 = "a a		b			c d"
-        arr3_2 = str3_2.split("\t", maxsplit=1)
+        arr3_2 = str3_2.split("\t", maxsplit=1)  # 分割一次，会分成两段
         print(type(arr3_2))  # <class 'list'>
         print(len(arr3_2))  # 2
         print(arr3_2)  # ['a a', '\tb\t\t\tc d'] 空字符串会被保留

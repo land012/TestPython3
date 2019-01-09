@@ -64,7 +64,7 @@ class DictDemo(unittest.TestCase):
     @staticmethod
     def test_sort1():
         dict2 = {"k2": [4, 5, 6], "k3": [2, 3, 5], "k1": [1, 2, 3]}
-        print("k4" in dict2)  # False
+        print("k,4" in dict2)  # False
         print(dict2)  # {'k3': [2, 3, 5], 'k2': [4, 5, 6], 'k1': [1, 2, 3]} # key的顺序每次执行是随机的
         keys = dict2.keys()  # 这个 keys 不是 list，不能直接调用 sort()
         print(keys)  # dict_keys(['k3', 'k2', 'k1'])

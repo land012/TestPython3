@@ -4,12 +4,14 @@ import unittest
 
 class Dictdemo2(unittest.TestCase):
 
-    def test1(self):
-        dict1 = { "k1" : "v1", "k2" : "v2" }
+    @staticmethod
+    def test1():
+        dict1 = { "ka" : "v1", "kb" : "v2" }
 
         """
-        k 1
-        k 2
+        只打印了key，且如果key 有三个字符，则会报错
+        k a
+        k b
         """
         for k, v in dict1:
             print(k, v)

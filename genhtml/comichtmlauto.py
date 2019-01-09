@@ -10,7 +10,7 @@ def main():
     origin_f = open("index.html")
     origin_html = origin_f.read()
 
-    path_top = "F:\Game\_1_3d"
+    path_top = "F:\Game\_1_korea\[疾風]"
 
     p1 = Path(path_top)
 

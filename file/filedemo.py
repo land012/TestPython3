@@ -48,13 +48,6 @@ class FileDemo(unittest.TestCase):
         file4.close()
         '''
 
-        # 写文件
-        '''
-        file5 ='' open("E:\TDDOWNLOAD\helloworld.txt", "w")
-        file5.write("Hello Python")
-        file5.close()
-        '''
-
         # 判断文件是否存在
         """
         if os.path.exists("E:\TDDOWNLOAD\images\AggregatorIcon.gif"):
@@ -113,6 +106,16 @@ class FileDemo(unittest.TestCase):
 
         str5 = file1.read(4)
         print(len(str5))  # 0
+
+    @staticmethod
+    def test1_write():
+        # 写文件
+        file5 = open("E:\TDDOWNLOAD\helloworld.txt", "w")
+        file5.writelines("Hello")
+        file5.writelines("Python")
+        # writelines 写一个迭代
+        file5.writelines(["a", "b", "c"])
+        file5.close()
 
     @staticmethod
     def test2():

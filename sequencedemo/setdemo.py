@@ -12,6 +12,11 @@ class SetDemo(unittest.TestCase):
 	    print(set1)
 
 	@staticmethod
+	def test1_1():
+		set1 = {1, 2, 3, 1}
+		print(set1)
+
+	@staticmethod
 	def test2():
 		set1 = set([1, 2])
 		set2 = set([3, 4])

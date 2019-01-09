@@ -22,3 +22,27 @@ class ListDemo2(unittest.TestCase):
         l3.append(l1)
         l3.append(l2)
         print(l3)  # [[1, 2, 3], [4, 5, 6]]
+
+    @staticmethod
+    def test3():
+        """
+        不会从 list 中删除
+        :return:
+        """
+        list1 = [1,2, 3]
+        for i in list1:
+            if i == 2:
+                del i
+        print(list1)
+
+    @staticmethod
+    def test4():
+        """
+        会从 list 中删除
+        :return:
+        """
+        list1 = [1, 2, 3]
+        for i in range(len(list1)-1, -1, -1):
+            if list1[i] == 2:
+                del list1[i]
+        print(list1)

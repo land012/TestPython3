@@ -46,6 +46,7 @@ class StringDemo(unittest.TestCase):
         str1 = "abcdefg"
         print(str1[:3])  # abc
         print(str1[-3:])  # efg
+        print(str1[:-1])  # abcdef
 
     @staticmethod
     def test_isalnum():

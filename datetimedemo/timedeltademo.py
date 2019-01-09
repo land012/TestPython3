@@ -31,25 +31,27 @@ class TimeDeltaDemo(unittest.TestCase):
         print(date1.weekday())  # 2
         print(date1.isoweekday())  # 3
 
+    # 计算周数
     @staticmethod
     def test3_1():
+        """
+        计算周数
+        周一 至 周一，是 1周
+        :return:
+        """
         date1 = datetime.datetime.strptime("2016-06-13", "%Y-%m-%d")  # mon
         date2 = datetime.datetime.strptime("2016-06-20", "%Y-%m-%d")
-        date3 = datetime.datetime.strptime("2017-10-30", "%Y-%m-%d")
-        date4 = datetime.datetime.strptime("2017-12-04", "%Y-%m-%d")
-        date5 = datetime.datetime.strptime("2018-07-30", "%Y-%m-%d")
+        date3 = datetime.datetime.strptime("2018-12-24", "%Y-%m-%d")
         print(hectortimeutils.cal_weeks(date1, date2))  # (25, 0)
         print(hectortimeutils.cal_weeks(date1, date3))  # (29, 0)
-        print(hectortimeutils.cal_weeks(date1, date4))  # (73, 0)
-        print(hectortimeutils.cal_weeks(date1, date5))  # (106, 0)
 
     @staticmethod
     def test4():
-        date1 = datetime.datetime.strptime("2018-06-01", "%Y-%m-%d")
-        date2 = datetime.datetime.strptime("2018-10-20", "%Y-%m-%d")
+        date1 = datetime.datetime.strptime("2018-10-19", "%Y-%m-%d")
+        date2 = datetime.datetime.strptime("2018-11-11", "%Y-%m-%d")
         timedelta1 = date2 - date1
         print(type(timedelta1))  # <class 'datetime.timedelta'>
-        print(timedelta1)  # 6 days, 0:00:00
+        print(timedelta1)  # 6 days, 0:00:00y
         # AttributeError: 'datetime.timedelta' object has no attribute 'weeks'
         # print(timedelta1.weeks)
         print(timedelta1.days)  # 6
