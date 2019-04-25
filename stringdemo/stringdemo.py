@@ -29,6 +29,9 @@ class StringDemo(unittest.TestCase):
         str2 = "bb"
         print(str1==str2)  # False
 
+        for i in str1:
+            print(i)
+
 
     @staticmethod
     def test89():
@@ -124,6 +127,15 @@ class StringDemo(unittest.TestCase):
     def test_join():
         list1 = ["a", "b", "c"]
         print(",".join(list1))  # a,b,c
+
+    @staticmethod
+    def test_1123():
+        read_size = 2
+        read_data = '/0' * read_size
+        print(read_data)  # /0/0
+        print(len(read_data))  # 4
+
+        print("abc" * 5)  # abcabcabcabcabc
 
 
 if __name__ == '__main__':

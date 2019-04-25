@@ -114,6 +114,17 @@ class NumpyDemo(unittest.TestCase):
         print(type(am1))  # <class 'numpy.ndarray'>
         print(am1)  # [1 2]
 
+    @staticmethod
+    def test_ones():
+        arr = np.ones((3, 2))
+        print(type(arr))  # <class 'numpy.ndarray'>
+        """
+        [[1. 1.]
+         [1. 1.]
+         [1. 1.]]
+        """
+        print(arr)
+
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()
