@@ -135,6 +135,9 @@ class StringDemo(unittest.TestCase):
         print(read_data)  # /0/0
         print(len(read_data))  # 4
 
+        read_data2 = '\0' * read_size
+        print(len(read_data2))  # 2
+
         print("abc" * 5)  # abcabcabcabcabc
 
 

@@ -1,16 +1,19 @@
 # coding: utf-8
 
 import os
+import unittest
 
 
-def hello(username):
-    print("Hello %s" % username)
+class HelloTest(unittest.TestCase):
 
+    @staticmethod
+    def test_hello():
+        print("Hello %s" % "tom")
 
-def main():
-    print(os.getcwd())  # D:\_python\TestPython3\helloworld
-    print(__file__)  # D:/_python/TestPython3/helloworld/helloworld.py
+        print("a" + "b" if 1 == 1 else "c")  # ab
+        print("a" + "b" if 1==2 else "c")  # c
 
-
-if __name__ == "__main__":
-    main()
+    @staticmethod
+    def test_main():
+        print(os.getcwd())  # D:\_python\TestPython3\helloworld
+        print(__file__)  # D:/_python/TestPython3/helloworld/helloworld.py

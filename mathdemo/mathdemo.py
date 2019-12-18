@@ -29,6 +29,9 @@ class MathDemo(unittest.TestCase):
     def test_pow():
         print(2 ** -3)
         print(1 / 2 ** 3)
+        print(math.pow(2, 15))  # 32768.0
+        print(math.pow(2, 16))  # 65536.0
+        print(math.pow(2, 32))  # 4294967296.0
 
 
 if __name__ == "__main__":

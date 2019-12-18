@@ -11,14 +11,18 @@ def main():
     # p2 = Path(str(p1.parent) + "\\2.txt")
     # p1.rename(p2)
 
-    path_top_str = r"F:\Game\新建文件夹\_1_3d\[3D]Under Corve01-04+紅警"
+    path_top_str = r"F:\L鸣"
     path_top = Path(path_top_str)
     for child_dir in path_top.iterdir():
         if child_dir.is_dir():
             dir_name = child_dir.name
-            for file in child_dir.iterdir():
-                target = path_top_str + "\\" + dir_name + "_" + file.name
-                file.rename(target)
+            print("dir = %s" % dir_name)
+
+            child_p = Path(child_dir)
+            for file1 in child_p.iterdir():
+                # print("file = %s" % file1.name)
+                target = path_top_str + "\\" + dir_name + "_" + file1.name
+                file1.rename(target)
         else:
             print("%s not dir" % str(child_dir))
 

@@ -47,6 +47,12 @@ class StringSplit(unittest.TestCase):
         arr4 = str4.split()
         print(float(arr4[0]) + 0.5)
 
+    @staticmethod
+    def test_split4():
+        str1 = "/"
+        str1_arr = str1.split("/")
+        print(len(str1_arr))  # 2
+
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()

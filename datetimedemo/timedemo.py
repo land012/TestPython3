@@ -11,7 +11,8 @@ class TimeDemo(unittest.TestCase):
     @staticmethod
     def test0():
         """当前时间戳"""
-        print(time.time()) # 15223,81786.9682963
+        print(time.time())  # 1568703098.9154472
+        print(int(time.time()))  # 1568703098
 
     @staticmethod
     def test1():

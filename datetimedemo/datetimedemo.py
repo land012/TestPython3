@@ -10,10 +10,10 @@ class DatetimeDemo(unittest.TestCase):
     @staticmethod
     def test1():
         start = datetime.datetime.now()
-        print(start)
+        print(start)  # 2019-09-10 22:43:30.331978
         time.sleep(3)
         delta1 = datetime.datetime.now() - start
-        print(delta1)
+        print(delta1)  # 0:00:03.004172
         print(delta1.days)  # 0
         print(delta1.seconds)  # 3
         print(delta1.microseconds)  # 172
@@ -45,20 +45,26 @@ class DatetimeDemo(unittest.TestCase):
         date1 = datetime.datetime.strptime("2017-12-12 00:00:00"[:10], "%Y-%m-%d")
         print(date1)
 
+    @staticmethod
+    def test5():
+        print(datetime) # <module 'datetime' from 'D:\\ProgramDev\\Python34\\lib\\datetime.py'>
+        print(datetime.date) # <class 'datetime.date'>
+        print(datetime.time) # <class 'datetime.time'>
+        print(datetime.datetime) # <class 'datetime.datetime'>
 
-'''
-print(datetime) # <module 'datetime' from 'D:\\ProgramDev\\Python34\\lib\\datetime.py'>
-print(datetime.date) # <class 'datetime.date'>
-print(datetime.time) # <class 'datetime.time'>
-print(datetime.datetime) # <class 'datetime.datetime'>
-'''
+    @staticmethod
+    def test6():
+        # datetime.date
+        today = datetime.date.today()
+        print(today)  # 2017-01-22
+        print(today.day)  # 22
+        print(today.weekday())  # 6 周日
+        print(today.strftime("%Y-%m-%d")) # 2016-07-21
 
-# datetime.date
-# today = datetime.date.today()
-# print(today)  # 2017-01-22
-# print(today.day)  # 22
-# print(today.weekday())  # 6 周日
-# print(today.strftime("%Y-%m-%d")) # 2016-07-21
+
+
+
+
 
 '''
 print(datetime.datetime.today().hour)  # 11

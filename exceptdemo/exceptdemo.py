@@ -49,11 +49,11 @@ class ExceptionDemo(unittest.TestCase):
             fn1()
         except Exception as e:
             t, v, tb = sys.exc_info()
-            print("type=%s" % t)
+            print("type=%s" % t)  # type=<class 'ValueError'>
 
-            print("type of value = %s" % type(v))
+            print("type of value = %s" % type(v))  # type of value = <class 'ValueError'>
             print(v)  # invalid literal for int() with base 10: 'abc'
-            print(str(v))
+            print(str(v))  # invalid literal for int() with base 10: 'abc'
             print(v.args)  # ("invalid literal for int() with base 10: 'abc'",)
 
             # filename, lineno, functionname, msg = traceback.extract_tb(tb)
