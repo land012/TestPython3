@@ -91,7 +91,7 @@ if __name__ == "__main__":
     while True:
         # todo
         chapter_id = 996480
-        url = "http://www.qdtxt.cc/chapter_%d_%d.html" % (chapter_id, i)
+        url = "http://www.er_%d_%d.html" % (chapter_id, i)
 
         logging.info("----------------------- chapter %s" % i)
 

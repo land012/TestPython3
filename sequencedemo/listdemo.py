@@ -139,7 +139,7 @@ class ListDemo(unittest.TestCase):
 
         print("===============================")
 
-        # 遍历
+        # 遍历list
         for i in shoplist:
            print(i, end=" ")  # apple mango carrot radish 
 

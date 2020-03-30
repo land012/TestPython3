@@ -1,6 +1,9 @@
 __author__ = 'xudazhou'
-
+"""
+字符串 和 bytes 转换
+"""
 import unittest
+import binascii
 
 
 class BytesTest(unittest.TestCase):
@@ -40,6 +43,30 @@ class BytesTest(unittest.TestCase):
 
     @staticmethod
     def test3_1():
+        """
+        全角
+        :return:
+        """
         str1 = "ｂ"
         byte1 = str1.encode(encoding="utf-8")
         print(byte1)  # b'\xef\xbd\x82'
+        # print(str1.encode("ascii"))  # UnicodeEncodeError: 'ascii' codec can't encode character '\uff42' in position 0: ordinal not in range(128)
+
+    @staticmethod
+    def test4():
+        str1 = "我"
+        print(str1.encode("utf-8"))  # b'\xe6\x88\x91'
+        print(str1.encode("gbk"))  # b'\xce\xd2'
+        # print(str1.encode("ascii"))  # UnicodeEncodeError: 'ascii' codec can't encode character '\u6211' in position 0: ordinal not in range(128)
+
+    @staticmethod
+    def test5():
+        """
+        字符串 转 十六进制
+        :return:
+        """
+        str1 = "a"
+        print(binascii.hexlify(str1.encode()))  # b'61'
+
+        # str2 = b"我"  # SyntaxError: bytes can only contain ASCII literal characters.
+        # print(binascii.hexlify(str2))

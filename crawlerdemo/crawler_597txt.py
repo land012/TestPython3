@@ -72,7 +72,7 @@ class MyParser(HTMLParser):
 
 if __name__ == "__main__":
     for i in range(24064544, 24064774):
-        url = "https://www.597txt.com/files/article/html/79/79593/%d.html" % i
+        url = "https://www.597txt.co593/%d.html" % i
 
         logging.info("----------------------- page %s" % i)
 

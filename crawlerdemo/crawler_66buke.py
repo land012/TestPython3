@@ -77,7 +77,7 @@ if __name__ == "__main__":
         j = 0
 
         while True:
-            url_pre = "https://www.66buke.com/book/7816/"
+            url_pre = "https://www.66/"
             if j == 0:
                 url = url_pre + "%s.html" % i
             else:

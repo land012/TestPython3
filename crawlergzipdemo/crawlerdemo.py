@@ -19,7 +19,7 @@ if __name__ == "__main__":
     ssl._create_default_https_context = ssl._create_unverified_context
 
     # url = "https://www.qisuu.la/du/30/30992/9534396.html"
-    url = "https://wap.qisuu.la/du/30/30992/9534395.html"
+    url = "https://wap.qisuu.34395.html"
 
     try:
         # urllib.error.HTTPError: HTTP Error 502: Bad Gateway

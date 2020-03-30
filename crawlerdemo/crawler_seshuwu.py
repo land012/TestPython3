@@ -1,8 +1,8 @@
 # coding: utf-8
 """
 # Created by xudazhou at 2019/8/17
-https://www.qq51.org
-章节id连续
+http://seshuwu.com
+章节id无序
 """
 import logging
 import urllib.request
@@ -21,13 +21,15 @@ class MyParser(HTMLParser):
     def __init__(self):
         super(MyParser, self).__init__()
         # todo 章分隔符
-        # lf = open("1.txt", mode="a", encoding="utf-8")
-        # lf.write("\n\n################################################################################\n\n")
-        # lf.close()
+        lf = open("1.txt", mode="a", encoding="utf-8")
+        lf.write("\n\n\n")
+        lf.close()
 
+        self.is_begin = False
         self.is_get = False
         self.start_tag = ""
         self.f_name = ""
+        self.div_count = 0
 
     @staticmethod
     def get_attr(p_list, p_key):
@@ -44,21 +46,30 @@ class MyParser(HTMLParser):
         return None
 
     def handle_starttag(self, tag, attrs):
-        if tag == "li":
-            if self.get_attr(attrs, "class") == "active":
-                self.is_get = True
+        if tag == "h2":
+            self.is_get = True
 
         if tag == "div":
-            if self.get_attr(attrs, "class") == "panel-body content-body content-ext":
-                self.is_get = True
+            if self.get_attr(attrs, "itemtype") == "http://schema.org/Book":
+                self.is_begin = True
+                self.div_count += 1
+            if self.is_begin:
+                self.div_count += 1
+
+        if tag == "p" and self.is_begin:
+            self.is_get = True
 
     def handle_endtag(self, tag):
-        if self.is_get and tag == "li":
+        if self.is_get and tag == "h2":
             self.is_get = False
 
-        if self.is_get and tag == "div":
+        if tag == "div" and self.is_begin:
+            self.div_count -= 1
+            if self.div_count == 0:
+                self.is_begin = False
+
+        if self.is_begin and self.is_get and tag == "p":
             self.is_get = False
-            # print("end %s" % tag)
 
     def handle_data(self, data):
         if self.is_get:
@@ -75,16 +86,15 @@ class MyParser(HTMLParser):
 
 
 if __name__ == "__main__":
-    i = 330272
-
-    while True:
+    # todo 每页的 id 不是从 0 或 1 自增的
+    list1 = [116881,116882,116883,116884,116885,116886,116887,116925]
+    for i in list1:
         # todo
-        url = "https://www.qq51.org/9/9511/%d.html" % i
+        url = "http://seshi=%d" % i
 
         logging.info("----------------------- chapter %s" % i)
 
         is_try = False
-        is_skip = False
         try_count = 0
         html_bytes = ""
 
@@ -103,13 +113,6 @@ if __name__ == "__main__":
                 is_try = False
             except urllib.error.HTTPError as e:
                 logging.error(e)
-
-                e_str = str(e)
-                if e_str == "HTTP Error 404: Not Found":
-                    logging.info("------------------------------------ chapter %d not exist, skip" % i)
-                    is_try = False
-                    is_skip = True
-                    break
 
                 is_try = True
                 try_count += 1
@@ -131,18 +134,12 @@ if __name__ == "__main__":
 
         logging.info("----------------------- resp read fini -----------------------------")
 
-        if not is_skip:
-            html = str(html_bytes, encoding="gbk", errors="ignore")
+        html = str(html_bytes, encoding="utf-8", errors="ignore")
 
 
-            myparser = MyParser()
-            myparser.feed(html)
+        myparser = MyParser()
+        myparser.feed(html)
 
-            logging.info("----------------------- parse fini -----------------------------")
+        logging.info("----------------------- parse fini -----------------------------")
 
-        i += 1
-
-        # todo
-        if i == 330518:
-            logging.info("==================================== end ====================================")
-            exit(0)
+    logging.info("=================================== end =====================================")

@@ -94,7 +94,7 @@ def main(p_url):
 
     logging.info("----------------------- resp read fini -----------------------------")
 
-    html = str(res, encoding="gbk", errors="ignore")
+    html = str(res, encoding="utf-8", errors="ignore")
 
     f = open("demo.log", mode='w', encoding='utf-8')
     f.write(html)
@@ -109,7 +109,7 @@ if __name__ == "__main__":
                         format='%(asctime)s %(levelname)s (%(lineno)d) - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
 
-    url = "https://www.diaosixs.org/1_1172/"
+    url = "https://www.dingdiann.com/ddk13534/"
 
     start = time.time()
 

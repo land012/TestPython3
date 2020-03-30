@@ -72,7 +72,7 @@ if __name__ == "__main__":
                         datefmt='%Y-%m-%d %H:%M:%S')
     ssl._create_default_https_context = ssl._create_unverified_context
 
-    url = "https://www.dingdiann.com/ddk83781/"
+    url = "https://www.yqzww.net/book_98819/40278091.html"
 
     try:
         # urllib.error.HTTPError: HTTP Error 502: Bad Gateway
@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
     logging.info("res type {}, len={}".format(type(res), len(res)))  # res type <class 'bytes'>
 
-    html = str(res, encoding="utf-8", errors="ignore")
+    html = str(res, encoding="gbk", errors="ignore")
 
     f = open("demo.log", mode='w', encoding='utf-8')
     f.write(html)

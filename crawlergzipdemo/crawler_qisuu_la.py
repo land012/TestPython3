@@ -67,7 +67,7 @@ class MyParser(HTMLParser):
 
 if __name__ == "__main__":
     for i in range(9534395, 9534617):
-        url = "https://www.qisuu.la/du/30/30992/%d.html" % i
+        url = "https://www.q992/%d.html" % i
 
         logging.info("----------------------- page %s" % i)
 

@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     for i in list1:
         # todo
-        url = "https://www.biquge.info/39_39331/%d.html" % i
+        url = "https://www.biquge1/%d.html" % i
 
         logging.info("----------------------- chapter %s" % i)
 

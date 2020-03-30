@@ -1,6 +1,13 @@
 #!/usr/bin/python
 __author__ = '大洲'
 
+import logging
+
+
+logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s %(levelname)s (%(lineno)d) - %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S')
+
 
 class Person:
     def __init__(self):
@@ -15,13 +22,22 @@ class Person:
         因为没有引用 self的变量，所以代码检查这个方法可以是 static
         :return:
         """
-        print("Hi Leah Dizon")
+        logging.info("Hi Leah Dizon")
 
     def sayhello(self):
-        print("Hello %s" % self.name)
+        logging.info("Hello %s" % self.name)
 
     def __str__(self):
         return "I am %s" % self.name
+
+    def __repr__(self):
+        return self.__str__()
+
+    def __hash__(self):
+        return hash(self.name)
+
+    def __eq__(self, other):
+        return self.name == other.name
 
 
 if __name__ == "__main__":
@@ -30,9 +46,16 @@ if __name__ == "__main__":
     # TypeError: __init__() missing 1 required positional argument: 'name'
     p1 = Person()
     p1.sayhi()
-    print(p1)
-    print(str(p1))
+    logging.info(p1)
+    logging.info(str(p1))
 
     p2 = Person("Alphonse")
     p2.sayhello()
 
+    p3 = Person("Alphonse")
+
+    logging.info(p2 == p3)  # True
+
+    dict1 = dict()
+    dict1[p2] = "alp"
+    logging.info(p3 in dict1)  # True
