@@ -10,7 +10,7 @@ def main():
     origin_f = open("index.html")
     origin_html = origin_f.read()
 
-    path_top = r"F:\Game\新建文件夹\_1_3d\雯"
+    path_top = r"J:\新建文件夹気漢化組]"
 
     p1 = Path(path_top)
 

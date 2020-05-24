@@ -11,7 +11,7 @@ def main():
     # p2 = Path(str(p1.parent) + "\\2.txt")
     # p1.rename(p2)
 
-    path_top_str = r"F:\L鸣"
+    path_top_str = r"J:\新建文拳超人"
     path_top = Path(path_top_str)
     for child_dir in path_top.iterdir():
         if child_dir.is_dir():
